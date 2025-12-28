@@ -25,7 +25,7 @@ import java.util.Map;
  * prj-core의 AllExceptionsFilter와 동일한 역할
  */
 @Slf4j
-@RestControllerAdvice
+@RestControllerAdvice(basePackages = "org.plate")
 public class GlobalExceptionHandler {
 
     /**
