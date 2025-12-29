@@ -1,0 +1,33 @@
+# Git
+.git
+.gitignore
+
+# IDE
+.idea
+*.iml
+*.ipr
+*.iws
+.vscode
+
+# Build
+build/
+out/
+target/
+bin/
+
+# Gradle
+.gradle
+!gradle/wrapper/gradle-wrapper.jar
+
+# 환경 설정
+.env
+.env.*
+!.env.example
+
+# 로그
+*.log
+logs/
+
+# 기타
+*.md
+LICENSE

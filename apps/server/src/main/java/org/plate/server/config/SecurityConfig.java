@@ -52,9 +52,8 @@ public class SecurityConfig {
             // H2 Console (개발용)
             "/h2-console/**",
 
-            // 헬스 체크
-            "/actuator/health",
-            "/health"
+            // 헬스 체크 (Actuator 전체 허용)
+            "/actuator/**"
     };
 
     @Bean
