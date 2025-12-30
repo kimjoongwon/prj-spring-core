@@ -7,6 +7,7 @@ import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.security.SecurityRequirement;
 import io.swagger.v3.oas.models.security.SecurityScheme;
 import io.swagger.v3.oas.models.servers.Server;
+import jakarta.servlet.ServletContext;
 import org.plate.common.constant.AuthConstants;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -28,11 +29,13 @@ public class SwaggerConfig {
     private static final String SECURITY_SCHEME_NAME = "bearerAuth";
 
     @Bean
-    public OpenAPI openAPI() {
+    public OpenAPI openAPI(ServletContext servletContext) {
+        String contextPath = servletContext.getContextPath();
+
         return new OpenAPI()
                 .info(apiInfo())
                 .servers(List.of(
-                        new Server().url("/").description("API 서버")
+                        new Server().url(contextPath).description("현재 서버")
                 ))
                 .components(new Components()
                         .addSecuritySchemes(SECURITY_SCHEME_NAME, bearerSecurityScheme())
